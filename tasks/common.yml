@@ -1,3 +1,10 @@
+- name: install archive handlers
+  apt:
+    name: "{{ item }}"
+  with_items:
+  - unzip
+  - tar
+
 - name: Check if Nomad is already installed
   stat:
     path: "{{ nomad_install_dir }}/nomad"
