@@ -5,6 +5,7 @@
   service:
     name: "{{ nomad_service_name }}"
     state: restarted
+    enabled: True
 
 - name: reload nomad
   become: yes
