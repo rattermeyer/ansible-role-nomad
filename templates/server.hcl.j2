@@ -9,6 +9,9 @@ server {
 {% if nomad_server_bootstrap_expect and nomad_server %}
   bootstrap_expect = {{ nomad_server_bootstrap_expect }}
 {% endif %}
+{% if nomad_encrypt_key is defined -%}
+  encrypt= "{{ nomad_encrypt_key }}"
+{% endif -%}
 {% if nomad_server_data_dir and nomad_server %}
   data_dir = "{{ nomad_server_data_dir }}"
 {% endif %}
