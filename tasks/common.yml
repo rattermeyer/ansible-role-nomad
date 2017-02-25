@@ -25,7 +25,8 @@
       src: "{{ nomad_download_dir }}/nomad.zip"
       dest: "{{ nomad_install_dir }}"
       remote_src: True
-    notify: restart nomad
+    notify:
+    - restart nomad
   when: nomad_bin.stat.exists == False or nomad_force_install == True
 
 - name: Create Nomad configuration directory
