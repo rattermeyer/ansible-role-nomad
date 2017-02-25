@@ -11,20 +11,22 @@
   register: nomad_bin
   changed_when: false
 
-- name: Download Nomad
-  become: yes
-  get_url:
-    url: "{{ nomad_url }}"
-    dest: "{{ nomad_download_dir }}/nomad.zip"
-    sha256sum: "{{ nomad_sha256sum }}"
+- block:
+  - name: Download Nomad
+    become: yes
+    get_url:
+      url: "{{ nomad_url }}"
+      dest: "{{ nomad_download_dir }}/nomad.zip"
+      sha256sum: "{{ nomad_sha256sum }}"
 
-- name: Unzip Nomad to installation directory
-  become: yes
-  unarchive:
-    src: "{{ nomad_download_dir }}/nomad.zip"
-    dest: "{{ nomad_install_dir }}"
-    creates: "{{ nomad_install_dir }}/nomad"
-    remote_src: True
+  - name: Unzip Nomad to installation directory
+    become: yes
+    unarchive:
+      src: "{{ nomad_download_dir }}/nomad.zip"
+      dest: "{{ nomad_install_dir }}"
+      remote_src: True
+    notify: restart nomad
+  when: nomad_bin.stat.exists == False or nomad_force_install == True
 
 - name: Create Nomad configuration directory
   become: yes
