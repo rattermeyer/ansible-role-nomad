@@ -13,6 +13,7 @@ enable_debug = true
 {% else %}
 enable_debug = false
 {% endif %}
+
 ports {
   http = {{ nomad_ports_http }}
 {% if nomad_ports_rpc and nomad_server %}
@@ -22,6 +23,7 @@ ports {
   serf = {{ nomad_ports_serf }}
 {% endif %}
 }
+
 addresses {
   http = "{{ nomad_addresses_http }}"
 {% if nomad_addresses_rpc and nomad_server %}
@@ -31,6 +33,7 @@ addresses {
   serf = "{{ nomad_addresses_serf }}"
 {% endif %}
 }
+
 advertise {
 {% if nomad_advertise_rpc and nomad_ports_rpc and nomad_server %}
   rpc = "{{ nomad_advertise_rpc }}:{{ nomad_ports_rpc }}"
@@ -39,6 +42,7 @@ advertise {
   serf = "{{ nomad_advertise_serf }}:{{ nomad_ports_serf }}"
 {% endif %}
 }
+
 {% if nomad_telemetry %}
 telemetry {
 {% if nomad_telemetry_statsite_address %}
@@ -54,6 +58,7 @@ telemetry {
 {% endif %}
 }
 {% endif %}
+
 {% if nomad_leave_on_interrupt %}
 leave_on_interrupt = true
 {% else %}
