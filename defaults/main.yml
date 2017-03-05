@@ -53,3 +53,10 @@ nomad_client_servers: []
 nomad_client_node_id: ''
 nomad_client_node_class: ''
 nomad_client_meta: {}
+
+nomad_tls_enable: False
+nomad_tls_src_dir: "{{ lookup('env','NOMAD_SRC_FILES') | default(role_path+'/files', true) }}"
+nomad_tls_dest_dir: "{{ lookup('env','NOMAD_TLS_DEST_DIR') | default('/etc/nomad/ssl', true) }}"
+nomad_tls_http: False
+nomad_tls_rpc: False
+nomad_tls_verify_server_hostname: False

@@ -12,6 +12,7 @@
   service:
     name: "{{ nomad_service_name }}"
     state: reloaded
+    enabled: True
 
 - name: reload systemd
   command: systemctl daemon-reload

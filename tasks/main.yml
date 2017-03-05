@@ -2,7 +2,8 @@
 # tasks file for ansible-role-nomad
 - debug: msg="namad_server={{nomad_server}} and nomad_client={{nomad_client}}"
 - name: Check if both nomad_server and nomad_client are set
-  fail: msg='nomad_server and nomad_client were both set. According to https://nomadproject.io/docs/agent/config.html, "Note that it is strongly recommended not to operate a node as both client and server".'
+  fail:
+    msg: 'nomad_server and nomad_client were both set. According to https://nomadproject.io/docs/agent/config.html, "Note that it is strongly recommended not to operate a node as both client and server".'
   when: nomad_server and nomad_client
 
 - block:
@@ -27,6 +28,9 @@
 
 - include: server.yml
   when: nomad_server
+
+- include: tls.yml
+  when: nomad_tls_enable == True
 
 - include: client.yml
   when: nomad_client

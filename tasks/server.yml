@@ -23,3 +23,14 @@
     mode: 0644
   notify:
     - restart nomad
+- name: Create Nomad tls config
+  become: yes
+  template:
+    src: tls.hcl.j2
+    dest: "{{ nomad_config_dir }}/tls.hcl"
+    owner: root
+    group: root
+    mode: 0644
+  when: nomad_tls_enable == True
+  notify:
+    - restart nomad
