@@ -11,6 +11,10 @@
   register: nomad_bin
   changed_when: false
 
+- debug:
+    var: nomad_force_install
+    verbosity: 2
+
 - block:
   - name: Download Nomad
     become: yes
@@ -27,7 +31,7 @@
       remote_src: True
     notify:
     - restart nomad
-  when: nomad_bin.stat.exists == False or nomad_force_install == True
+  when: not nomad_bin.stat.exists or nomad_force_install
 
 - name: Create Nomad configuration directory
   become: yes

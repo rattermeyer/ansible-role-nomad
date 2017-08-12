@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-role-nomad
-nomad_version: 0.5.4
-nomad_sha256sum: ed9eb471b9f5bab729cfa402db5aa56e1d935c328ac48327267e0ea53568d5c2
+nomad_version: 0.6.0
+nomad_sha256sum: fcf108046164cfeda84eab1c3047e36ad59d239b66e6b2f013e6c93064bc6313
 nomad_force_install: False
 
 nomad_client: true
