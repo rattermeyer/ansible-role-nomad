@@ -60,3 +60,7 @@ nomad_tls_dest_dir: "{{ lookup('env','NOMAD_TLS_DEST_DIR') | default('/etc/nomad
 nomad_tls_http: False
 nomad_tls_rpc: False
 nomad_tls_verify_server_hostname: False
+
+nomad_vault: False
+nomad_vault_address: https://vault.service.consul:8200
+nomad_vault_create_from_role: nomad-cluster-role

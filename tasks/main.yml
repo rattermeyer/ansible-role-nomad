@@ -34,3 +34,6 @@
 
 - include: client.yml
   when: nomad_client
+
+- include: vault.yml
+  when: nomad_vault
