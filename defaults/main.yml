@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-role-nomad
-nomad_version: 0.6.0
-nomad_sha256sum: fcf108046164cfeda84eab1c3047e36ad59d239b66e6b2f013e6c93064bc6313
+nomad_version: 0.7.0
+nomad_sha256sum: b3b78dccbdbd54ddc7a5ffdad29bce2d745cac93ea9e45f94e078f57b756f511.
 nomad_force_install: False
 
 nomad_client: true
@@ -57,8 +57,8 @@ nomad_client_meta: {}
 nomad_tls_enable: False
 nomad_tls_src_dir: "{{ lookup('env','NOMAD_SRC_FILES') | default(role_path+'/files', true) }}"
 nomad_tls_dest_dir: "{{ lookup('env','NOMAD_TLS_DEST_DIR') | default('/etc/nomad/ssl', true) }}"
-nomad_tls_http: False
-nomad_tls_rpc: False
+nomad_tls_http: True
+nomad_tls_rpc: True
 nomad_tls_verify_server_hostname: False
 
 nomad_vault: False
