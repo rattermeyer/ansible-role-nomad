@@ -4,7 +4,7 @@ tls {
   rpc  = {{ nomad_tls_rpc | lower }}
   verify_server_hostname = {{ nomad_tls_verify_server_hostname | lower  }}
 
-  ca_file   = "{{ nomad_tls_ca_crt }}"
-  cert_file = "{{ nomad_tls_crt }}"
-  key_file  = "{{ nomad_tls_key}}"
+  ca_file   = "{{nomad_tls_dest_dir}}/{{ nomad_tls_ca_crt }}"
+  cert_file = "{{nomad_tls_dest_dir}}/{{ nomad_tls_crt }}"
+  key_file  = "{{nomad_tls_dest_dir}}/{{ nomad_tls_key}}"
 }
