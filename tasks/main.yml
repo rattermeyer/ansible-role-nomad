@@ -24,16 +24,16 @@
       state: present
   when: nomad_server
 
-- include: common.yml
+- import_tasks: common.yml
 
-- include: server.yml
+- include_tasks: server.yml
   when: nomad_server
 
-- include: tls.yml
+- include_tasks: tls.yml
   when: nomad_tls_enable == True
 
-- include: client.yml
+- include_tasks: client.yml
   when: nomad_client
 
-- include: vault.yml
+- include_tasks: vault.yml
   when: nomad_vault
