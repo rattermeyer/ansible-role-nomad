@@ -22,6 +22,7 @@
       url: "{{ nomad_url }}"
       dest: "{{ nomad_download_dir }}/nomad.zip"
       sha256sum: "{{ nomad_sha256sum }}"
+      force: "{{nomad_force_install}}"
 
   - name: Unzip Nomad to installation directory
     become: yes
