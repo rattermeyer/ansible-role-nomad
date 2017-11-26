@@ -16,6 +16,13 @@
     verbosity: 2
 
 - block:
+  # TODO downgrade is required because of https://github.com/ansible/ansible/issues/25402
+  - name: ensure we have a working version of urllib3
+    pip:
+      name: urllib3
+      version: 1.13.1
+      state: forcereinstall
+
   - name: Download Nomad
     become: yes
     get_url:
