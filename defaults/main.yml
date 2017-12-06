@@ -60,6 +60,7 @@ nomad_tls_dest_dir: "{{ lookup('env','NOMAD_TLS_DEST_DIR') | default('/etc/nomad
 nomad_tls_http: True
 nomad_tls_rpc: True
 nomad_tls_verify_server_hostname: False
+nomad_tls_verify_client: False
 
 nomad_vault: False
 nomad_vault_address: https://active.vault.service.consul:8200
