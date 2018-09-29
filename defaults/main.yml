@@ -1,6 +1,6 @@
 ---
 # defaults file for ansible-role-nomad
-nomad_version: 0.7.1
+nomad_version: 0.8.6
 nomad_sha256sum: 72b32799c2128ed9d2bb6cbf00c7600644a8d06c521a320e42d5493a5d8a789a
 nomad_force_install: False
 
@@ -35,7 +35,7 @@ nomad_telemetry_statsite_address: ''
 nomad_telemetry_statsd_address: ''
 nomad_telemetry_disable_hostname: false
 
-nomad_server_bootstrap_expect: 3
+nomad_server_bootstrap_expect: "{{ groups['nomad_servers'] | length }}"
 nomad_server_data_dir: "{{ nomad_data_dir }}/server"
 nomad_server_protocol_version: ''
 nomad_server_num_schedulers: "{{ ansible_processor_cores }}"

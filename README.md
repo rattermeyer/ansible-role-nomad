@@ -44,7 +44,7 @@ Role Variables
 | nomad_telemetry_statsite_address  | ''                                                                              |             |
 | nomad_telemetry_statsd_address    | ''                                                                              |             |
 | nomad_telemetry_disable_hostname  | false                                                                           |             |
-| nomad_server_bootstrap_expect     | 3                                                                               |             |
+| nomad_server_bootstrap_expect     | "{{ groups['nomad_servers'] | length }}"                                        |             |
 | nomad_server_data_dir             | "{{ nomad_data_dir }}/server"                                                   |             |
 | nomad_server_protocol_version     | ''                                                                              |             |
 | nomad_server_num_schedulers       | "{{ ansible_processor_cores }}"                                                 |             |
